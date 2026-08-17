@@ -1,0 +1,156 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass[10pt]{beamer}
+
+\mode<presentation> {
+	
+	% The Beamer class comes with a number of default slide themes
+	% which change the colors and layouts of slides. Below this is a list
+	% of all the themes, uncomment each in turn to see what they look like.
+	
+	%\usetheme{default}
+	%\usetheme{AnnArbor}
+	%\usetheme{Antibes}
+	%\usetheme{Bergen}
+	%\usetheme{Berkeley}
+	%\usetheme{Berlin}
+	%\usetheme{Boadilla}
+	%\usetheme{CambridgeUS}
+	%\usetheme{Copenhagen}
+	%\usetheme{Darmstadt}
+	%\usetheme{Dresden}
+	%\usetheme{Frankfurt}
+	%\usetheme{Goettingen}
+	%\usetheme{Hannover}
+	%\usetheme{Ilmenau}
+	%\usetheme{JuanLesPins}
+	%\usetheme{Luebeck}
+	\usepackage{tikz-qtree}
+	\usepackage{latexsym}
+	%\usetheme{Madrid}
+	\usepackage{comment}
+	\tikzstyle{blackcircle}= [circle, draw=black, fill=black!30]
+	\tikzstyle{arrow} = [thick,->,>=stealth]
+	\usepackage{tikzsymbols}
+	\usepackage{pgfplots}
+	\pgfplotsset{compat=1.15}
+	\usepackage{mathrsfs}
+	\usetikzlibrary{arrows}
+	\usepackage{graphicx}
+	\newcommand{\F}{\mathbb{F}_2}
+	\newcommand{\Cl}{\text{Cl}}
+	\newcommand{\Acl}{\hat{\text{\Cl}}}
+	%\usetheme{Malmoe}
+	%\usetheme{Marburg}
+	%\usetheme{Montpellier}
+	%\usetheme{PaloAlto}
+	%\usetheme{Pittsburgh}
+	%\usetheme{Rochester}
+	%\usetheme{Singapore}
+	%\usetheme{Szeged}
+	\usetheme{Warsaw}
+	
+	% As well as themes, the Beamer class has a number of color themes
+	% for any slide theme. Uncomment each of these in turn to see how it
+	% changes the colors of your current slide theme.
+	
+	%\usecolortheme{albatross}
+	%\usecolortheme{beaver}
+	%\usecolortheme{beetle}
+	%\usecolortheme{crane}
+	%\usecolortheme{dolphin}
+	%\usecolortheme{dove}
+	%\usecolortheme{fly}
+	%\usecolortheme{lily}
+	%\usecolortheme{orchid}
+	%\usecolortheme{rose}
+	%\usecolortheme{seagull}
+	%\usecolortheme{seahorse}
+	%\usecolortheme{whale}
+	%\usecolortheme{wolverine}
+	
+	%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+	\setbeamertemplate{footline}[frame number]
+	
+	\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+%\usepackage {tikz}
+\newcommand{\Deg}{\text{deg}}
+\usepackage{xcolor}
+\usepackage{tkz-graph}
+\usepackage{circuitikz}
+
+\usepackage{physics}
+\usepackage{amssymb,forest}
+\usetikzlibrary{arrows.meta}
+
+\newcommand{\mc}[2]{\multicolumn{#1}{c}{#2}}
+\definecolor{Gray}{gray}{0.85}
+\definecolor{LightCyan}{rgb}{0.88,1,1}
+
+
+\newcommand{\cb}{\{\pm 1 \}}
+\newcommand{\prob}{\text{prob}}
+
+%-----------------------------------
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[Short title]{Quantum-Classical Equivalence for AND Functions \\ \small{CCC 2026}} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+\author{\textcolor{blue}{Sreejata Kishor Bhattacharya}, Farzan Byramji, Arkadev Chattopadhay, Yogesh Dahiya, Shachar Lovett} % Your name
+\institute[TIFR] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+	\textcolor{red}{Tata Institute of Fundamental Research \\ University of California San Diego} % Your institution for the title page
+
+	
+}
+%\date{\today} % Date, can be changed to a custom date
+\date{ }
+\begin{document}
+	
+	\begin{frame}
+		\titlepage % Print the title page as the first slide
+	\end{frame}
+	
+	
+	
+	%----------------------------------------------------------------------------------------
+	%	PRESENTATION SLIDES
+	%----------------------------------------------------------------------------------------
+	
+	%------------------------------------------------
+	\newcommand{\cube}{\{\pm 1\}}
+	\section{Introduction}
+	
+	\begin{frame}{Start}
+		The proof is divided into two modular parts:
+		\begin{enumerate}
+			\item Establish the conditional fooling lemma for lifted distributions.
+			\item Construct the set of partial assignments $P$ and a hard distribution $\mu_{\rho}$ for every $\rho \in P$.
+		\end{enumerate}
+	\end{frame}
+	
+
+	
+\end{document}
+
