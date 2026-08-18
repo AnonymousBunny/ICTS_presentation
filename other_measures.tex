@@ -55,8 +55,23 @@
 		$$ \text{rank}^{1/3} [g \circ \text{AND}_2] \approx \text{spar}(g)$$
 		\item<2-> Our main result:
 		
-		$$ \log \text{spar}(g) \leq \text{poly}(\log ( \text{rank}^{1/3} (g \circ \text{AND}_2), \log(n) )) $$
+		$$ \log \text{spar}(g) \leq \text{poly}\left(\log ( \text{rank}^{1/3} (g \circ \text{AND}_2), \log(n) )\right) $$ \footnote{Other direction is trivial}
 		
 	\end{itemize}
 	
 \end{frame}
+
+\begin{frame}
+	
+\textbf{How this implies the Quantum Equivalence Conjecture}
+	
+	\begin{itemize}
+		\item<1-> Recall we want to upper bound $D(f)$ in terms of $\text{log} \left( \text{rank}^{1/3} (f \circ \text{AND}_2)\right)$
+		\item<2-> \textbf{Knop, Lovett, McGuire, Yuan} showed that
+		$$ \log D(g \circ \text{AND}_2) \leq \text{poly}(\log \text{spar}(g), \log(n))$$
+		\item<3-> Since our result upper bounds $\text{spar}(g)$ in terms of $\text{rank}^{1/3}(g \circ \text{AND}_2)$, the result immediately follows.
+	\end{itemize}
+	
+\end{frame}
+
+
