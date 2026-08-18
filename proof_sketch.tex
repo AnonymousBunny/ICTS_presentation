@@ -9,7 +9,7 @@
 	$$ a_i, b_i : \{0,1\}^n \rightarrow [0,1] , i= 1, 2, \cdots , m$$
 	and constants $\alpha_i, i = 1, 2, \cdots , m$ such that
 	
-	$$\left| g(x \land y) - \displaystyle \sum_{i=1}^{m} \alpha_i a_i(x) \land b_i(y)\right| \leq 1/3$$
+	$$\left| g(x \land y) - \displaystyle \sum_{i=1}^{m} \alpha_i a_i(x)  b_i(y)\right| \leq 1/3$$
 	\item<2-> By standard techniques (eg John's lemma), we can assume $\sum |\alpha_i| \leq L$ (where $\log L \leq \text{polylog} (m)$)
 \end{itemize}
 
@@ -50,7 +50,7 @@
 	
 	\begin{itemize}
 		\item \textbf{Observation: }Given the expression 
-		$$ g(x \land y) \approx \displaystyle \sum_{i=1}^{m} \alpha_i a_i(x) \land b_i(y),$$
+		$$ g(x \land y) \approx \displaystyle \sum_{i=1}^{m} \alpha_i a_i(x)b_i(y),$$
 		we can hit each $a_i$ by a restriction+averaging operator $(\rho, \delta)$, replace each $b_i$ by a constant, and get an approximation for $g_{\rho}$
 	\end{itemize}
 \end{frame}
@@ -129,7 +129,7 @@
 		\item<2-> Plugging $y_0= (0, 1, 1, \cdots , 1), x= (1, z_2, z_3, \cdots , z_n)$, we get
 		$$ g(0, z_2, z_3, \cdots , z_n) \approx \displaystyle \sum_{i=1}^{m} \alpha_i a_i(1, z_2, \cdots , z_n) b_i(y_0)$$
 		Plugging $y_0= (0, 1, 1, \cdots , 1), x= (0, z_2, z_3, \cdots , z_n)$,
-		$$ g(0, z_2, c_3, \cdots , z_n) \approx \displaystyle \sum_{i=1}^{m} \alpha_i a_i(0, z_2, z_3, \cdots , z_n) b_i(y_0) $$
+		$$ g(0, z_2, z_3, \cdots , z_n) \approx \displaystyle \sum_{i=1}^{m} \alpha_i a_i(0, z_2, z_3, \cdots , z_n) b_i(y_0) $$
 		\item<3-> Average these two expressions:
 		$$ g(0, z_2, \cdots , z_n) \approx \displaystyle \sum_{i=1}^{m} \alpha_i b_i(y_0) \times (a_i)_R(z)$$
 			
@@ -256,7 +256,7 @@ $$ \displaystyle \sum_{i=1}^{L} \alpha_i c_i (a_i)_R$$ will be at most $L \varep
 		\item<1-> \textbf{It simplifies any bounded function: }For any $\tilde{f}: \{ \pm 1\}^n \rightarrow [0,1]$,
 		$$ \text{E} [|\hat{\tilde{f}}|^{\geq d}] \leq \varepsilon$$
 		\item<2-> \textbf{It preserves high degree of $g$}:
-		$$ \text{E}[\text{deg} (g_{\rho})] \geq d$$ 
+		$$ \text{E}[\text{deg} (g_{\rho})] \geq D$$ 
 	\end{enumerate}
 	
 \end{frame}
@@ -265,7 +265,9 @@ $$ \displaystyle \sum_{i=1}^{L} \alpha_i c_i (a_i)_R$$ will be at most $L \varep
 \begin{frame}{Preserving high degree}
 	\textbf{Claim: }$\text{E} [\text{deg}(g_{\rho})] \geq p|T|$
 	\begin{proof}
-		The coefficient of $x_A$ in $g_{\rho}$ is nonzero, and we have $\text{E}[|A|] = p|T|$. We chose $y \in \{0,1\}^{[n] \setminus T}$ such that $g_{A,T}(y)= \displaystyle \sum_{S\cap T=A} \alpha_S y_{S \setminus A} \neq 0$. This is precisely the coefficient of the monomial $x_{A}$ in $g_{\rho}$.
+		The coefficient of $x_A$ in $g_{\rho}$ is nonzero, and we have $\text{E}[|A|] = p|T|$. \newline
+		
+		The coefficient of $x_A$ in $g_{\rho}$ is $g_{A,T}(y)= \displaystyle \sum_{S\cap T=A} \alpha_S y_{S \setminus A}$; and we chose $y$ so that it is nonzero.
 	\end{proof}
 	
 \end{frame}
@@ -275,10 +277,10 @@ $$ \displaystyle \sum_{i=1}^{L} \alpha_i c_i (a_i)_R$$ will be at most $L \varep
 	\textbf{Claim: }For all $\tilde{f}: \{ \pm 1\}^n \rightarrow [0,1]$,
 	$$ \text{E} [|| \hat{\tilde{f}}_R ||^{\geq d}] \leq \varepsilon$$
 	\begin{proof}
-		Recall how $R$ is sampled.
+		Recall how $R$ is sampled:
 		\begin{itemize}
 			\item Set everything outside $T$ to 1.
-			\item Set everything in $T$ to $*$ with probability $p$, $\Delta$ with probability $1-p$.
+			\item Set everything in $T$ independently to $*$ with probability $p$, $\Delta$ with probability $1-p$.
 		\end{itemize}
 	\end{proof}
 	
