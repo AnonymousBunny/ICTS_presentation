@@ -40,7 +40,7 @@
 	\begin{itemize}
 		\item<1-> Note that every function $f: \{0,1\}^n \rightarrow \mathbb{R}$ can also be represented as a function $\tilde{f}: \{ \pm 1\}^n \rightarrow \mathbb{R}$. It is easy to see that their degrees are the same. \newline
 		
-		 \textbf{Convention: }For a function $f: \{0,1\}^n \rightarrow \mathbb{R}$, we denote its equivalent function with the domain $\{ \pm 1\}^n$ by $\tilde{f}: \{ \pm 1\}^n \rightarrow \mathbb{R}$.
+		 \textbf{Convention: }For a function $f: \{0,1\}^n \rightarrow \mathbb{R}$, we denote its equivalent function with domain $\{ \pm 1\}^n$ by $\tilde{f}: \{ \pm 1\}^n \rightarrow \mathbb{R}$.
 		\item<2-> For upper-bounding the approximate degree, we shall look at functions in the $\{\pm 1\}^n$ domain. For lower bounding the degree, we shall look at functions in the $\{ 0, 1\}^n$ domain. Since the degree is invariant under change of domain, this is ok.
 	\end{itemize}
 	
@@ -56,9 +56,9 @@
 \end{frame}
 
 
-\begin{frame}
+\begin{frame}{Restriction+averaging operators}
 	
-	\textbf{Restriction+averaging operators: }
+
 	
 	A \textbf{restriction+averaging operator} is denoted by a string $R \in \{0,1,*,\Delta\}^n$. It converts a function $f: \{0,1\}^n \rightarrow \mathbb{R}$ to a function $f: \{0,1\}^{\text{free}(R)} \rightarrow \mathbb{R}$ where $\text{free}(R)= \{i | R_i=*\}$. The transformation is as follows:
 	\begin{itemize}
@@ -105,8 +105,8 @@
 	$$ g(x \land y) \approx \displaystyle \sum_{i=1}^{m} \alpha_i a_i(x) b_i(y)$$
 	$$ a_i, b_i: \{0,1\}^n \rightarrow [0,1]$$
 	$$ \displaystyle \sum_i |\alpha_i| \leq L$$
-	\item<2-> \textbf{Claim: }Given a restriction+averaging operator $R$, with $\rho$ its associated partial assignment, there exist constants $c_1, c_2, \cdots , c_m \in [0,1]$ such that
-	$$ g_{\rho} (z) \approx \displaystyle \sum_{i=1}^{m} \alpha_i c_i (a_i)_{R} (z)$$
+	\item<2-> \textbf{Claim: }Given a restriction+averaging operator $R$ and a consistent partial assignment $\rho$, there exist constants $c_1, c_2, \cdots , c_m \in [0,1]$ such that
+	$$ g_{\rho} (z) \approx \displaystyle \sum_{i=1}^{m} \alpha_i c_i \times (a_i)_{R} (z)$$
 
 \end{itemize}	
 
@@ -131,7 +131,7 @@
 		Plugging $y_0= (0, 1, 1, \cdots , 1), x= (0, z_2, z_3, \cdots , z_n)$,
 		$$ g(0, z_2, c_3, \cdots , z_n) \approx \displaystyle \sum_{i=1}^{m} \alpha_i a_i(0, z_2, z_3, \cdots , z_n) b_i(y_0) $$
 		\item<3-> Average these two expressions:
-		$$ g(0, z_2, \cdots , z_n) \approx \displaystyle \sum_{i=1}^{m} \alpha_i b_i(y_0) (a_i)_R(z)$$
+		$$ g(0, z_2, \cdots , z_n) \approx \displaystyle \sum_{i=1}^{m} \alpha_i b_i(y_0) \times (a_i)_R(z)$$
 			
 	\end{itemize}	
 	
@@ -150,16 +150,21 @@
 
 
 
-\begin{frame}{Exhibiting a gap between degree and approximate degree}
+\begin{frame}{Exhibiting an impossible gap between degree and approximate degree}
 	\begin{itemize}
 		\item<1-> \textbf{Conclusion: }If $R$ is a restriction+averaging operator and $\rho$ is a consistent partial assignment, we get an approximation for $g_{\rho}$ in terms of the $(a_i)_R$'s.
 		\item<2-> \textbf{Our next goal: }Using the fact that sparsity of $g$ is high, we define a distribution $\mathcal{D}$ over $(R,\rho)$ such that:
 		\begin{itemize}
 			\item $\rho$ is consistent with $R$
-			\item For all $a: \{0,1\}^n \rightarrow [0,1]$ ,$\text{E}_{R, \rho \sim \mathcal{D}}[\tilde{\text{deg}}(a_{R})] \leq d$ \textcolor{red}{(we will do something slightly different actually)}
-			\item $\text{E}_{(R, \rho \sim \mathcal{D})} [\text{deg}(g_{\rho})] \geq D$ 
+			\item For all $a: \{0,1\}^n \rightarrow [0,1]$, $\text{E}_{R, \rho \sim \mathcal{D}}[\text{approx-deg}(a_{R})] \leq d$ \textcolor{red}{(we will do something slightly different actually)}
+			\item $\text{E}_{(R, \rho )\sim \mathcal{D}} [\text{deg}(g_{\rho})] \geq D$ 
 		\end{itemize} 
-		\item<3-> If we can do this with a sufficiently big gap between $d$ and $D$, from the previous observation we get that the approximate degree of $g_{\rho}$ is very small; whereas teh second property implies the exact degree of $g_{\rho}$ is very large. But Nisan-Szegedy implies for any Boolean function, degree and approximate degree are polynomially related. Contradiction.
+	\end{itemize}
+\end{frame}
+\begin{frame}{Exhibiting an impossible gap between degree and approximate degree}
+	\begin{itemize}		
+		
+		\item<1-> If we can do this with a sufficiently big gap between $d$ and $D$, from the previous observation we get that the approximate degree of $g_{\rho}$ is very small; whereas the second property implies the exact degree of $g_{\rho}$ is very large. But Nisan-Szegedy\footnote{\textcolor{red}{TODO: explain on the board in case Yogesh has not covered this}} implies for any Boolean function, degree and approximate degree are polynomially related . Contradiction.
 		
 		
 	\end{itemize}	
@@ -186,9 +191,9 @@ $$ \displaystyle \sum_{i=1}^{L} \alpha_i c_i (a_i)_R$$ will be at most $L \varep
 \begin{itemize}
 	\item<1-> Let $\tilde{f}: \{ \pm 1\}^n \rightarrow \mathbb{R}$ be any function. Its Fourier expansion is
 	$$ \tilde{f} = \displaystyle \sum_{S \subseteq [n]} \hat{\tilde{f}}(S) \chi_S$$
-	\item<2-> Suppose we hit $\tilde{f}$ by a restriction+averaging operator $R$, which averages over some subset $T$ of variables. Then, we have
+	\item<2-> Suppose we hit $\tilde{f}$ by an averaging operator $R$, which averages over some subset $T$ of variables. Then, we have
 	$$ \tilde{f}_R = \displaystyle \sum_{S \cap T = \phi} \hat{\tilde{f}}(S) \chi_S$$
-	\item<3->Thus, averaging out over a variable kills all monomials containing it.
+	\item<3->In words, averaging out over a variable kills all monomials containing it.
 \end{itemize}
 \end{frame}
 
