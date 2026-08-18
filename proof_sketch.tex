@@ -67,8 +67,11 @@
 		\item If $R_i=*$, keep the $i$-th coordinate free.
 	\end{itemize}
 	
-	We shall associate a partial assignment $\rho \in \{0,1,*\}^n$ to each restriction+averaging operator $R$: $\rho$ is obtained from $R$ by changing all the $\Delta$'s to 0's. 
-	
+	A partial assignment $\rho \in \{0,1,*\}^n$ is said to be consistent with $R$ if it can be obtained from $R$ in the following manner:
+	\begin{itemize}
+		\item Change some of the 1's to 0's.
+		\item Change all of the $\Delta$'s to 0.
+	\end{itemize}
 	
 \end{frame}
 
@@ -76,11 +79,11 @@
 	\textbf{Goal: }Upper bound $\text{spar}(g)$ in terms of $\text{rank}^{1/3} (g \circ \text{AND}_2)$
 	
 	\begin{itemize}
-		\item<1-> We shall define a distribution $\mathcal{D}$ over \textit{restriction+averaging operators} $R$ such that for any $\tilde{a}: \{ \pm 1\}^n \rightarrow [0,1]$,
-		$$ \text{E}_{R \sim \mathcal{D}} [ |\tilde{a}_{R}|^{\geq d}] \leq \varepsilon$$
+		\item<1-> We shall define a distribution $\mathcal{D}$ over $(R,\rho)$ ($\rho$ consistent with $R$) such that for any $\tilde{a}: \{ \pm 1\}^n \rightarrow [0,1]$,
+		$$ \text{E}_{(R,\rho) \sim \mathcal{D}} [ |\tilde{a}_{R}|^{\geq d}] \leq \varepsilon$$
 		
 		where $|\tilde{f}|^{\geq d}$ denotes $\ell^1$ Fourier weight above level $d$
-		\item<2-> ... and such that $\text{E}_{R \sim \mathcal{D}}[ f_{\rho}] \geq D$, where $\rho$ is the partial assignment associated with $R$.
+		\item<2-> ... and such that $\text{E}_{(R,\rho) \sim \mathcal{D}}[\text{deg}( f_{\rho}]) \geq D$
 	\end{itemize}	
 	
 \end{frame}
@@ -111,10 +114,10 @@
 
 \begin{frame}{Obtaining an approximation for $f_{\rho}$}
 	\begin{itemize}
-		\item<1-> \textbf{Claim: }Given a restriction+averaging operator $R$, with $\rho$ its associated partial assignment, there exist constants $c_1, c_2, \cdots , c_m \in [0,1]$ such that
-		$$ g_{\rho} (z) \approx \displaystyle \sum_{i=1}^{m} \alpha_i c_i (a_i)_{R} (z)$$
-		\item<2-> I will show this only for the special case $R= \{\Delta , *, *, *, \cdots , *\}$. General case should be clear from this.
-		\item<3-> So, $\rho = \{0, *, *, *, \cdots , *\}$.
+		\item<1-> \textbf{Claim: }Given a restriction+averaging operator $R$ and a consistent partial assignment $\rho$ there exist constants $c_1, c_2, \cdots , c_m \in [0,1]$ such that
+		$$ g_{\rho} (z) \approx \displaystyle \sum_{i=1}^{m} \alpha_i c_i \times (a_i)_{R} (z)$$
+		\item<2-> I will show this only for two special cases. The general case should be clear from this.
+
 	\end{itemize}	
 	
 \end{frame}
@@ -122,7 +125,7 @@
 
 \begin{frame}{Obtaining an approximation for $f_{\rho}$}
 	\begin{itemize}
-		\item<1->I will show this only for the special case $R= \{\Delta , *, *, *, \cdots , *\}$. General case should be clear from this. So, $\rho = \{0, *, *, *, \cdots , *\}$.
+		\item<1->\textbf{Special case 1: } $R= \{\Delta , *, *, *, \cdots , *\}, \rho = \{0, *, *, *, \cdots , *\}$.
 		\item<2-> Plugging $y_0= (0, 1, 1, \cdots , 1), x= (1, z_2, z_3, \cdots , z_n)$, we get
 		$$ g(0, z_2, z_3, \cdots , z_n) \approx \displaystyle \sum_{i=1}^{m} \alpha_i a_i(1, z_2, \cdots , z_n) b_i(y_0)$$
 		Plugging $y_0= (0, 1, 1, \cdots , 1), x= (0, z_2, z_3, \cdots , z_n)$,
@@ -134,13 +137,27 @@
 	
 \end{frame}
 
+\begin{frame}{Obtaining an approximation for $f_{\rho}$}
+	\begin{itemize}
+		\item<1->\textbf{Special case 2: } $R= \{1 , *, *, *, \cdots , *\}, \rho = \{0, *, *, *, \cdots , *\}$.
+		\item<2-> Plugging $y_0= (0, 1, 1, \cdots , 1), x= (1, z_2, z_3, \cdots , z_n)$, we get
+		$$ g(0, z_2, z_3, \cdots , z_n) \approx \displaystyle \sum_{i=1}^{m} \alpha_i a_i(1, z_2, \cdots , z_n) b_i(y_0)$$
+		This is the desired expression.
+		
+	\end{itemize}	
+	
+\end{frame}
+
+
+
 \begin{frame}{Exhibiting a gap between degree and approximate degree}
 	\begin{itemize}
-		\item<1-> \textbf{Conclusion: }If $R$ is a restriction+averaging operator and $\rho$ is the associated partial assignment, we get an approximation for $g_{\rho}$ in terms of the $(a_i)_R$'s.
-		\item<2-> \textbf{Our next goal: }Using the fact that sparsity of $g$ is high, we define a distribution $\mathcal{D}$ over restriction+averaging operators $R$ such that:
+		\item<1-> \textbf{Conclusion: }If $R$ is a restriction+averaging operator and $\rho$ is a consistent partial assignment, we get an approximation for $g_{\rho}$ in terms of the $(a_i)_R$'s.
+		\item<2-> \textbf{Our next goal: }Using the fact that sparsity of $g$ is high, we define a distribution $\mathcal{D}$ over $(R,\rho)$ such that:
 		\begin{itemize}
-			\item For all $a: \{0,1\}^n \rightarrow [0,1]$ ,$\text{E}_{R \sim \mathcal{D}}[\tilde{\text{deg}}(a_{R})] \leq d$ \textcolor{red}{(we will do something slightly different actually)}
-			\item $\text{E}_{(R \sim \mathcal{D})} [\text{deg}(g_{\rho})] \geq D$ where $\rho$ is the partial assignment corresponding to $R$.
+			\item $\rho$ is consistent with $R$
+			\item For all $a: \{0,1\}^n \rightarrow [0,1]$ ,$\text{E}_{R, \rho \sim \mathcal{D}}[\tilde{\text{deg}}(a_{R})] \leq d$ \textcolor{red}{(we will do something slightly different actually)}
+			\item $\text{E}_{(R, \rho \sim \mathcal{D})} [\text{deg}(g_{\rho})] \geq D$ 
 		\end{itemize} 
 		\item<3-> If we can do this with a sufficiently big gap between $d$ and $D$, from the previous observation we get that the approximate degree of $g_{\rho}$ is very small; whereas teh second property implies the exact degree of $g_{\rho}$ is very large. But Nisan-Szegedy implies for any Boolean function, degree and approximate degree are polynomially related. Contradiction.
 		
@@ -156,7 +173,7 @@
 \begin{itemize}
 \item<1-> This is what we will show: \newline
 For any $\tilde{a}: \{ \pm 1\}^n \rightarrow [0,1]$, 
-$$ \text{E}_{R \sim \mathcal{D}} [|| \tilde{a}_R ||^{\geq d}] \leq \varepsilon$$
+$$ \text{E}_{R, \rho \sim \mathcal{D}} [|| \tilde{a}_R ||^{\geq d}] \leq \varepsilon$$
 where $||f||^{\geq d}$ denotes total $\ell^1$ Fourier mass above level $d$. \newline
 Notice that we switched to $\{ \pm 1\}$ domain here.
 \item<2-> If we achieve this, the total $\ell^1$ Fourier mass above level $d$ of the function
@@ -209,11 +226,113 @@ $$ \displaystyle \sum_{i=1}^{L} \alpha_i c_i (a_i)_R$$ will be at most $L \varep
 			\Delta & \text{ with probability }1-p
 		\end{cases}
 		$$
+		Set $R(i)=1$ for all $i \not \in T$.
+		
 	(Here $p$ is small but non-negligible.)
-	\item<3-> Let $A = \{i | i \in T, R(i)=*\}. $Look at the polynomial
+\end{itemize}\end{frame}
+\begin{frame}{Defining the distribution}
+	\begin{itemize}
+	\item<1-> Let $A = \{i | i \in T, R(i)=*\}. $ Set 
+	$$ \rho(i)= \begin{cases}
+		* & \text{ for }i \in A \\
+		0 & \text{for }i \in T \setminus A
+	\end{cases}$$
+	\item<2->
+	Look at the polynomial
 	$$ g_{A,T} = \displaystyle \sum_{S : S \cap T = A } \alpha_S x_{S \setminus A}$$
 	This is defined on $\{0,1\}^{[n] \setminus T}$, and is nonzero since $T$ is shattered. So there exists a $y \in \{0,1\}^{[n] \setminus T}$ such that $g_{A,T}(y) \neq 0$. 
-	\item<4-> Set $R(i)=y_i$ for $i \not \in T$.
+	\item<4-> Set $\rho(i)=y_i$ for $i \not \in T$.
 	\end{itemize}
 \end{frame}
+
+\begin{frame}{this distribution is good}
+	Recall that we have to show the following properties about this distribution:
+	\begin{enumerate}
+		\item<1-> \textbf{It simplifies any bounded function: }For any $\tilde{f}: \{ \pm 1\}^n \rightarrow [0,1]$,
+		$$ \text{E} [|\hat{\tilde{f}}|^{\geq d}] \leq \varepsilon$$
+		\item<2-> \textbf{It preserves high degree of $g$}:
+		$$ \text{E}[\text{deg} (g_{\rho})] \geq d$$ 
+	\end{enumerate}
+	
+\end{frame}
+
+
+\begin{frame}{Preserving high degree}
+	\textbf{Claim: }$\text{E} [\text{deg}(g_{\rho})] \geq p|T|$
+	\begin{proof}
+		The coefficient of $x_A$ in $g_{\rho}$ is nonzero, and we have $\text{E}[|A|] = p|T|$. We chose $y \in \{0,1\}^{[n] \setminus T}$ such that $g_{A,T}(y)= \displaystyle \sum_{S\cap T=A} \alpha_S y_{S \setminus A} \neq 0$. This is precisely the coefficient of the monomial $x_{A}$ in $g_{\rho}$.
+	\end{proof}
+	
+\end{frame}
+
+
+\begin{frame}{Destroying all bounded functions}
+	\textbf{Claim: }For all $\tilde{f}: \{ \pm 1\}^n \rightarrow [0,1]$,
+	$$ \text{E} [|| \hat{\tilde{f}}_R ||^{\geq d}] \leq \varepsilon$$
+	\begin{proof}
+		Recall how $R$ is sampled.
+		\begin{itemize}
+			\item Set everything outside $T$ to 1.
+			\item Set everything in $T$ to $*$ with probability $p$, $\Delta$ with probability $1-p$.
+		\end{itemize}
+	\end{proof}
+	
+\end{frame}
+
+\begin{frame}{Destroying all bounded functions}
+	\textbf{Claim: }For all $\tilde{f}: \{ \pm 1\}^n \rightarrow [0,1]$,
+	$$ \text{E} [|| \hat{\tilde{f}}_R ||^{\geq d}] \leq \varepsilon$$
+	\begin{proof}
+		\begin{itemize}
+		\item<1-> So we can first think of hitting $f$ with the fixed restriction $\delta$ that fixes everything outside $T$ to 1. Letting $h= f_{\delta}$, we set every variable of $h$ to $*$ with probability $p$; otherwise we set it to $\Delta$.
+		\item<2-> If a monomial contains any variable that gets hit by $\Delta$, that monomial dies.
+		\item<3-> The probability of a monomial $\hat{\tilde{h}}(S) \chi_S$ surviving, therefore, is $p^{|S|}$. For large monomials this is small.
+		\end{itemize}
+	\end{proof}
+	
+\end{frame}
+
+
+\begin{frame}{Destroying all bounded functions}
+	\textbf{Claim: }For all $\tilde{f}: \{ \pm 1\}^n \rightarrow [0,1]$,
+	$$ \text{E} [|| \hat{\tilde{f}}_R ||^{\geq d}] \leq \varepsilon$$
+	\begin{proof}
+		\begin{itemize}
+			\item<1-> 
+			$$ \text{Expected Fourier mass above level }d \leq \displaystyle \sum_{|S| \geq d} p^{|S|} |\hat{\tilde{h}}(S)|$$
+			\item<2-> Break this sum by layers $k= d, d+1, \cdots , n$.  At layer $k$, the sum is
+			$$ p^{k} \displaystyle \sum_{|S|=k} |\hat{\tilde{h}}(S)|$$			
+		\end{itemize}
+	\end{proof}
+	
+\end{frame}
+
+
+\begin{frame}{Destroying all bounded functions}
+	\textbf{Claim: }For all $\tilde{f}: \{ \pm 1\}^n \rightarrow [0,1]$,
+	$$ \text{E} [|| \hat{\tilde{f}}_R ||^{\geq d}] \leq \varepsilon$$
+	\begin{proof}
+		\begin{itemize}
+			\item<1-> 
+			 At layer $k$, the sum is
+			$$ p^{k} \displaystyle \sum_{|S|=k} |\hat{\tilde{h}}(S)|$$		
+			\item<2-> Since $\sum_S \hat{\tilde{h}}(S)^2 \leq 1$, by Cauchy-Schwartz, the sum above is 
+			$$ \leq p^{k} \sqrt{\dbinom{n}{k}} \leq \left(p \sqrt{\dfrac{en}{k}}  \right)^k$$	
+		\end{itemize}
+	\end{proof}
+	
+\end{frame}
+
+\begin{frame}{Destroying all bounded functions}
+	\textbf{Claim: }For all $\tilde{f}: \{ \pm 1\}^n \rightarrow [0,1]$,
+	$$ \text{E} [|| \hat{\tilde{f}}_R ||^{\geq d}] \leq \varepsilon$$
+	\begin{proof}
+		\begin{itemize}
+			\item<1-> 
+			Note that $k \geq d$. Choose $d \approx n^{1/100}$, $p \approx d^{-99/200 - \epsilon}$. Win.
+		\end{itemize}
+	\end{proof}
+	
+\end{frame}
+
 
