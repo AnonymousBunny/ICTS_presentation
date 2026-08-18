@@ -139,9 +139,11 @@
 		\item<1-> \textbf{Conclusion: }If $R$ is a restriction+averaging operator and $\rho$ is the associated partial assignment, we get an approximation for $g_{\rho}$ in terms of the $(a_i)_R$'s.
 		\item<2-> \textbf{Our next goal: }Using the fact that sparsity of $g$ is high, we define a distribution $\mathcal{D}$ over restriction+averaging operators $R$ such that:
 		\begin{itemize}
-			\item For all $a: \{0,1\}^n \rightarrow [0,1]$ ,$\text{E}_{R \sim \mathcal{D}}\tilde{\text{deg}}(a_{R}) \leq d$
+			\item For all $a: \{0,1\}^n \rightarrow [0,1]$ ,$\text{E}_{R \sim \mathcal{D}}[\tilde{\text{deg}}(a_{R})] \leq d$ \textcolor{red}{(we will do something slightly different actually)}
 			\item $\text{E}_{(R \sim \mathcal{D})} [\text{deg}(g_{\rho})] \geq D$ where $\rho$ is the partial assignment corresponding to $R$.
 		\end{itemize} 
+		\item<3-> If we can do this with a sufficiently big gap between $d$ and $D$, from the previous observation we get that the approximate degree of $g_{\rho}$ is very small; whereas teh second property implies the exact degree of $g_{\rho}$ is very large. But Nisan-Szegedy implies for any Boolean function, degree and approximate degree are polynomially related. Contradiction.
+		
 		
 	\end{itemize}	
 	
@@ -149,5 +151,69 @@
 
 
 
+\begin{frame}{Simplifying any bounded function}
+\textbf{First requirement: }
+\begin{itemize}
+\item<1-> This is what we will show: \newline
+For any $\tilde{a}: \{ \pm 1\}^n \rightarrow [0,1]$, 
+$$ \text{E}_{R \sim \mathcal{D}} [|| \tilde{a}_R ||^{\geq d}] \leq \varepsilon$$
+where $||f||^{\geq d}$ denotes total $\ell^1$ Fourier mass above level $d$. \newline
+Notice that we switched to $\{ \pm 1\}$ domain here.
+\item<2-> If we achieve this, the total $\ell^1$ Fourier mass above level $d$ of the function
+$$ \displaystyle \sum_{i=1}^{L} \alpha_i c_i (a_i)_R$$ will be at most $L \varepsilon$, which we will set to be $<1/100$. Thus, on expectation, the approximate degree of $g_{\rho}$ will be $\leq d$.
+\end{itemize}
+\end{frame}
 
+\begin{frame}{Simplifying any bounded function}
+\textbf{Why switching to the $\{ \pm 1 \}$ basis is helpful:}
+\begin{itemize}
+	\item<1-> Let $\tilde{f}: \{ \pm 1\}^n \rightarrow \mathbb{R}$ be any function. Its Fourier expansion is
+	$$ \tilde{f} = \displaystyle \sum_{S \subseteq [n]} \hat{\tilde{f}}(S) \chi_S$$
+	\item<2-> Suppose we hit $\tilde{f}$ by a restriction+averaging operator $R$, which averages over some subset $T$ of variables. Then, we have
+	$$ \tilde{f}_R = \displaystyle \sum_{S \cap T = \phi} \hat{\tilde{f}}(S) \chi_S$$
+	\item<3->Thus, averaging out over a variable kills all monomials containing it.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Defining the distribution}
+
+\begin{itemize}
+	\item<1-> Assume $g: \{0,1\}^n \rightarrow \{0,1\}$ has $\geq s$ non-zero monomials in the deMorgan basis. Let $\mathcal{F} \subseteq 2^{[n]}$ denote the set of nonzero monomials. 
+	\item<2-> By \textbf{Sauer-Shelah lemma}, the VC dimension of $\mathcal{F}$ is at least $\Omega (\log(s)/\log(n))$.
+	\item<3-> Let $T \subseteq [n]$ be a shattered set of size $\geq \Omega(\log(s)/\log(n))$.
+	\item<4-> For any $A \subseteq T$, there exists $S \in \mathcal{F}$ such that $S \cap T = A$.
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Defining the distribution}
+	
+	\begin{itemize}
+		\item<1-> Assume $g: \{0,1\}^n \rightarrow \{0,1\}$ has $\geq s$ non-zero monomials in the deMorgan basis. Let $\mathcal{F} \subseteq 2^{[n]}$ denote the set of nonzero monomials. 
+		\item<2-> By \textbf{Sauer-Shelah lemma}, the VC dimension of $\mathcal{F}$ is at least $\Omega (\log(s)/\log(n))$.
+		\item<3-> Let $T \subseteq [n]$ be a shattered set of size $\geq \Omega(\log(s)/\log(n))$.
+		\item<4-> For any $A \subseteq T$, there exists $S \in \mathcal{F}$ such that $S \cap T = A$.
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Defining the distribution}
+	
+	\begin{itemize}
+		\item<1-> Let $T$ be the large shattered subset.
+		\item<2-> For every $i \in T$, set 
+		$$
+		R(i) = \begin{cases}
+			* & \text{ with probability }p \\
+			\Delta & \text{ with probability }1-p
+		\end{cases}
+		$$
+	(Here $p$ is small but non-negligible.)
+	\item<3-> Let $A = \{i | i \in T, R(i)=*\}. $Look at the polynomial
+	$$ g_{A,T} = \displaystyle \sum_{S : S \cap T = A } \alpha_S x_{S \setminus A}$$
+	This is defined on $\{0,1\}^{[n] \setminus T}$, and is nonzero since $T$ is shattered. So there exists a $y \in \{0,1\}^{[n] \setminus T}$ such that $g_{A,T}(y) \neq 0$. 
+	\item<4-> Set $R(i)=y_i$ for $i \not \in T$.
+	\end{itemize}
+\end{frame}
 
