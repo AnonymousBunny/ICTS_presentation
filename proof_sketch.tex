@@ -10,21 +10,21 @@
 	and constants $\alpha_i, i = 1, 2, \cdots , m$ such that
 	
 	$$\left| g(x \land y) - \displaystyle \sum_{i=1}^{m} \alpha_i a_i(x)  b_i(y)\right| \leq 1/3$$
-	\item<2-> By standard techniques (eg John's lemma), we can assume $\sum |\alpha_i| \leq L$ (where $\log L \leq \text{polylog} (m)$)
+	\item<2-> By standard techniques (eg John's lemma), we can assume $\sum |\alpha_i| \leq L$ (where $L \leq m^{O(n)}$)
 \end{itemize}
 
 \end{frame}
 
 \begin{frame}
-	\textbf{Goal: }Upper bound $\text{spar}(g)$ in terms of $\text{rank}^{1/3} (g \circ \text{AND}_2)$
+	\textbf{Assumption: }$\text{rank}^{1/3} (g \circ \text{AND}_2)$ is small, $\text{spar}(g)$ is large
 	
 	\begin{itemize}
-		\item<1-> We shall construct a function $f$ (to be obtained from $g$) such that
+		\item<1-> We shall construct a restriction $\rho$ such that:
 		\begin{itemize}
-			\item Approximate degree of $f$ is small
-			\item Degree of $f$ is high
+			\item Approximate degree of $g_{\rho}$ is small
+			\item Degree of $g_{\rho}$ is high
 		\end{itemize}
-		This contradicts known relations between degree and approximate degree (first proven by Nisan-Szegedy; constants were optimized later).
+		This contradicts known relations between degree and approximate degree (first proven by Nisan-Szegedy; constants were optimized later by Aaronson, Ben-David, Kothari, Rao, Tal). To be more precise, since $g_{\rho}$ is a Boolean function, $\tilde{deg}(g_{\rho}) \geq \Omega(\text{deg}(g_{\rho})^{1/2})$. We shall show that $g_{\rho}$ has much lower approximate degree than exact degree; therefore our assumption was impossible.
 		
 		\item<2-> We shall get a low-degree approximating polynomial from the inequality 
 			$$\left| g(x \land y) - \displaystyle \sum_{i=1}^{m} \alpha_i a_i(x)b_i(y)\right| \leq 1/3$$
@@ -35,7 +35,7 @@
 
 
 \begin{frame}
-	\textbf{Goal: }Upper bound $\text{spar}(g)$ in terms of $\text{rank}^{1/3} (g \circ \text{AND}_2)$
+	\textbf{Assumption: }$\text{rank}^{1/3} (g \circ \text{AND}_2)$ is small, $\text{spar}(g)$ is large
 	
 	\begin{itemize}
 		\item<1-> Note that every function $f: \{0,1\}^n \rightarrow \mathbb{R}$ can also be represented as a function $\tilde{f}: \{ \pm 1\}^n \rightarrow \mathbb{R}$. It is easy to see that their degrees are the same. \newline
@@ -44,15 +44,6 @@
 		\item<2-> For upper-bounding the approximate degree, we shall look at functions in the $\{\pm 1\}^n$ domain. For lower bounding the degree, we shall look at functions in the $\{ 0, 1\}^n$ domain. Since the degree is invariant under change of domain, this is ok.
 	\end{itemize}
 	
-\end{frame}
-
-\begin{frame}
-	
-	\begin{itemize}
-		\item \textbf{Observation: }Given the expression 
-		$$ g(x \land y) \approx \displaystyle \sum_{i=1}^{m} \alpha_i a_i(x)b_i(y),$$
-		we can hit each $a_i$ by a restriction+averaging operator $(\rho, \delta)$, replace each $b_i$ by a constant, and get an approximation for $g_{\rho}$
-	\end{itemize}
 \end{frame}
 
 
@@ -74,26 +65,40 @@
 	\end{itemize}
 	
 \end{frame}
+\begin{frame}
+	
+	\begin{itemize}
+		\item \textbf{Observation (will explain in more detail soon): }
+		Let $R$ be a restriction+averaging operator and $\rho$ a consistent partial assignment. \newline
+		In the expression 
+		$$ g(x \land y) \approx \displaystyle \sum_{i=1}^{m} \alpha_i a_i(x)b_i(y),$$
+		we can hit each $a_i$ by a restriction+averaging operator $R$ and replace each $b_i$ by a constant $c_i \in [0,1]$, and get an approximation for $g_{\rho}$:
+		
+		$$ g_{\rho}(z) \approx \displaystyle \sum_{i=1}^{m} \alpha_i c_i \times (a_i)_R(z)$$
+	\end{itemize}
+\end{frame}
+
 
 \begin{frame}
-	\textbf{Goal: }Upper bound $\text{spar}(g)$ in terms of $\text{rank}^{1/3} (g \circ \text{AND}_2)$
-	
+	\textbf{Assumption: }$\text{rank}^{1/3} (g \circ \text{AND}_2)$ is small, $\text{spar}(g)$ is large. \newline
+	\textbf{Goal: }Derive a contradiction
 	\begin{itemize}
 		\item<1-> We shall define a distribution $\mathcal{D}$ over $(R,\rho)$ ($\rho$ consistent with $R$) such that for any $\tilde{a}: \{ \pm 1\}^n \rightarrow [0,1]$,
 		$$ \text{E}_{(R,\rho) \sim \mathcal{D}} [ |\tilde{a}_{R}|^{\geq d}] \leq \varepsilon$$
 		
 		where $|\tilde{f}|^{\geq d}$ denotes $\ell^1$ Fourier weight above level $d$
-		\item<2-> ... and such that $\text{E}_{(R,\rho) \sim \mathcal{D}}[\text{deg}( f_{\rho}]) \geq D$
+		\item<2-> ... and such that $\text{E}_{(R,\rho) \sim \mathcal{D}}[\text{deg}( g_{\rho})] \geq D$
 	\end{itemize}	
 	
 \end{frame}
 
 \begin{frame}
-
+	\textbf{Assumption: }$\text{rank}^{1/3} (g \circ \text{AND}_2)$ is small, $\text{spar}(g)$ is large. \newline
+\textbf{Goal: }Derive a contradiction
 	\begin{itemize}
-		\item<1-> The first property, along with the expression for approximate rank, will give that $\text{approx-deg}(g_{\rho}) \leq d$ for a typical $R \sim \mathcal{D}$
-		\item<2-> The second property will give that $\text{deg}(g_{\rho}) \geq D$ for a typical $R \sim \mathcal{D}$.
-		\item<3-> If the gap between $d$ and $D$ is large enough, we are done.
+		\item<1-> The first property, along with the expression for approximate rank, will give that $\text{approx-deg}(g_{\rho}) \leq d$ for a typical $(R, \rho) \sim \mathcal{D}$
+		\item<2-> The second property will give that $\text{deg}(g_{\rho}) \geq D$ for a typical $(R, \rho) \sim \mathcal{D}$.
+		\item<3-> If the gap between $d$ and $D$ is large enough, we get a contradiction.
 	\end{itemize}	
 	
 \end{frame}
@@ -179,19 +184,19 @@
 \item<1-> This is what we will show: \newline
 For any $\tilde{a}: \{ \pm 1\}^n \rightarrow [0,1]$, 
 $$ \text{E}_{R, \rho \sim \mathcal{D}} [|| \tilde{a}_R ||^{\geq d}] \leq \varepsilon$$
-where $||f||^{\geq d}$ denotes total $\ell^1$ Fourier mass above level $d$. \newline
-Notice that we switched to $\{ \pm 1\}$ domain here.
-\item<2-> If we achieve this, the total $\ell^1$ Fourier mass above level $d$ of the function
+where $||\tilde{f}||^{\geq d}$ denotes total $\ell^1$ Fourier mass above level $d$. \newline
+Notice that we switched to $\{ \pm 1\}^n$ domain here.
+\item<2-> If we achieve this, the expected $\ell^1$ Fourier mass above level $d$ of the function
 $$ \displaystyle \sum_{i=1}^{L} \alpha_i c_i (a_i)_R$$ will be at most $L \varepsilon$, which we will set to be $<1/100$. Thus, on expectation, the approximate degree of $g_{\rho}$ will be $\leq d$.
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Simplifying any bounded function}
-\textbf{Why switching to the $\{ \pm 1 \}$ basis is helpful:}
+\textbf{Why switching to the $\{ \pm 1 \}^n$ basis is helpful:}
 \begin{itemize}
 	\item<1-> Let $\tilde{f}: \{ \pm 1\}^n \rightarrow \mathbb{R}$ be any function. Its Fourier expansion is
 	$$ \tilde{f} = \displaystyle \sum_{S \subseteq [n]} \hat{\tilde{f}}(S) \chi_S$$
-	\item<2-> Suppose we hit $\tilde{f}$ by an averaging operator $R$, which averages over some subset $T$ of variables. Then, we have
+	\item<2-> Suppose we hit $\tilde{f}$ by an averaging operator $R$ which averages over some subset $T$ of variables. Then, we have
 	$$ \tilde{f}_R = \displaystyle \sum_{S \cap T = \phi} \hat{\tilde{f}}(S) \chi_S$$
 	\item<3->In words, averaging out over a variable kills all monomials containing it.
 \end{itemize}
@@ -200,7 +205,7 @@ $$ \displaystyle \sum_{i=1}^{L} \alpha_i c_i (a_i)_R$$ will be at most $L \varep
 \begin{frame}{Defining the distribution}
 
 \begin{itemize}
-	\item<1-> Assume $g: \{0,1\}^n \rightarrow \{0,1\}$ has $\geq s$ non-zero monomials in the deMorgan basis. Let $\mathcal{F} \subseteq 2^{[n]}$ denote the set of nonzero monomials. 
+	\item<1-> Assume $g: \{0,1\}^n \rightarrow \{0,1\}$ has $\geq s$ non-zero monomials in the de-Morgan basis. Let $\mathcal{F} \subseteq 2^{[n]}$ denote the set of nonzero monomials. 
 	\item<2-> By \textbf{Sauer-Shelah lemma}, the VC dimension of $\mathcal{F}$ is at least $\Omega (\log(s)/\log(n))$.
 	\item<3-> Let $T \subseteq [n]$ be a shattered set of size $\geq \Omega(\log(s)/\log(n))$.
 	\item<4-> For any $A \subseteq T$, there exists $S \in \mathcal{F}$ such that $S \cap T = A$.
@@ -212,7 +217,7 @@ $$ \displaystyle \sum_{i=1}^{L} \alpha_i c_i (a_i)_R$$ will be at most $L \varep
 \begin{frame}{Defining the distribution}
 	
 	\begin{itemize}
-		\item<1-> Assume $g: \{0,1\}^n \rightarrow \{0,1\}$ has $\geq s$ non-zero monomials in the deMorgan basis. Let $\mathcal{F} \subseteq 2^{[n]}$ denote the set of nonzero monomials. 
+		\item<1-> Assume $g: \{0,1\}^n \rightarrow \{0,1\}$ has $\geq s$ non-zero monomials in the de-Morgan basis. Let $\mathcal{F} \subseteq 2^{[n]}$ denote the set of nonzero monomials. 
 		\item<2-> By \textbf{Sauer-Shelah lemma}, the VC dimension of $\mathcal{F}$ is at least $\Omega (\log(s)/\log(n))$.
 		\item<3-> Let $T \subseteq [n]$ be a shattered set of size $\geq \Omega(\log(s)/\log(n))$.
 		\item<4-> For any $A \subseteq T$, there exists $S \in \mathcal{F}$ such that $S \cap T = A$.
@@ -291,8 +296,8 @@ $$ \displaystyle \sum_{i=1}^{L} \alpha_i c_i (a_i)_R$$ will be at most $L \varep
 	$$ \text{E} [|| \hat{\tilde{f}}_R ||^{\geq d}] \leq \varepsilon$$
 	\begin{proof}
 		\begin{itemize}
-		\item<1-> So we can first think of hitting $f$ with the fixed restriction $\delta$ that fixes everything outside $T$ to 1. Letting $h= f_{\delta}$, we set every variable of $h$ to $*$ with probability $p$; otherwise we set it to $\Delta$.
-		\item<2-> If a monomial contains any variable that gets hit by $\Delta$, that monomial dies.
+		\item<1-> So we can first think of hitting $f$ with the fixed restriction $\delta$ that fixes everything outside $T$ to 1. Let $h= f_{\delta}$. We set every variable of $h$ to $*$ with probability $p$; otherwise we set it to $\Delta$.
+		\item<2-> If a monomial of $\tilde{h}$ contains any variable that gets hit by $\Delta$, that monomial dies.
 		\item<3-> The probability of a monomial $\hat{\tilde{h}}(S) \chi_S$ surviving, therefore, is $p^{|S|}$. For large monomials this is small.
 		\end{itemize}
 	\end{proof}

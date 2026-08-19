@@ -1,4 +1,4 @@
 \beamer@sectionintoc {1}{Introduction}{2}{0}{1}
-\beamer@sectionintoc {2}{Quantum communication complexity and other measures}{17}{0}{2}
-\beamer@sectionintoc {3}{Proof sketch}{27}{0}{3}
-\beamer@sectionintoc {4}{Conclusion}{83}{0}{4}
+\beamer@sectionintoc {2}{Quantum communication complexity and other measures}{18}{0}{2}
+\beamer@sectionintoc {3}{Proof sketch}{28}{0}{3}
+\beamer@sectionintoc {4}{Conclusion}{84}{0}{4}
