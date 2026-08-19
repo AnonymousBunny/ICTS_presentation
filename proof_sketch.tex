@@ -296,7 +296,7 @@ $$ \displaystyle \sum_{i=1}^{L} \alpha_i c_i (a_i)_R$$ will be at most $L \varep
 	$$ \text{E} [|| \hat{\tilde{f}}_R ||^{\geq d}] \leq \varepsilon$$
 	\begin{proof}
 		\begin{itemize}
-		\item<1-> So we can first think of hitting $f$ with the fixed restriction $\delta$ that fixes everything outside $T$ to 1. Let $h= f_{\delta}$. We set every variable of $h$ to $*$ with probability $p$; otherwise we set it to $\Delta$.
+		\item<1-> So we can first think of hitting $f$ with the fixed restriction $\delta$ that fixes everything outside $T$ to 1. Let $h= f_{\delta}$. We set every variable of $h$ to $*, \Delta$ with probability $p,1-p$ independently..
 		\item<2-> If a monomial of $\tilde{h}$ contains any variable that gets hit by $\Delta$, that monomial dies.
 		\item<3-> The probability of a monomial $\hat{\tilde{h}}(S) \chi_S$ surviving, therefore, is $p^{|S|}$. For large monomials this is small.
 		\end{itemize}
