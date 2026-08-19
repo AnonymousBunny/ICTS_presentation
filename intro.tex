@@ -1,22 +1,32 @@
 	\section{Introduction}
 
-\begin{frame}{introducing quantum communication}
-Model of quantum communication: Alice and Bob share an unlimited number of EPR pairs; have their own auxiliary quantum systems, and can communicate classical bits\footnote{Therefore they can do quantum teleportation.}. Cost of the communication protocol is the number of classical bits communicated. 
+\begin{frame}{Introducing quantum communication}
+Model of quantum communication: Alice and Bob share an unlimited number of EPR pairs; have their own auxiliary quantum systems, and can communicate classical bits\footnote{Therefore they can do quantum teleportation.}. Cost of the communication protocol is the number of classical bits communicated. \newline
 
-\begin{figure}[htbp]
-	\centering % Centers the image
-	\includegraphics[width=0.4\textwidth]{quantum_communication.png} 
-	
-	\caption{ChatGPT's impression of Alice and Bob doing quantum communication}
-	\label{fig:my_image} % Label used for cross-referencing
-\end{figure}
 
 
 \end{frame}	
 
 
+
+\begin{frame}{The hunt for quantum supremacy}
+	
+\begin{itemize}
+\item<1->\textbf{Major theme in quantum complexity: }Find tasks that are easy with quantum resources, but hard classically. A famous candidate: Factoring.
+
+\item<2-> We cannot formally prove such guarantees in the complexity theoretic setting since we cannot prove lower bounds against $\text{P}$ or $\text{BPP}$. We can, however, examine the same question in information theoretic settings such as query algorithms, communication protocols, etc. 
+
+\item<3-> In query complexity, it is known that quantum algorithms have no advantage over classical algorithms for total functions. It is conjectured that the same phenomenon holds for communication protocols as well.
+\end{itemize}
+
+	
+\end{frame}	
+
+
+
+
 \begin{frame}
-	\textcolor{red}{\textbf{Quantum-Equivalence Conjecture}}: For a total function $f: \{0,1\}^n  \rightarrow \{0,1\}$, 
+	\textcolor{red}{\textbf{Log Equivalence Conjecture}}: For a total function $f: \{0,1\}^n  \rightarrow \{0,1\}$, 
 	$$R(f) \leq \text{poly}(Q(f))$$
 	where
 	\begin{itemize}
@@ -34,7 +44,7 @@ Model of quantum communication: Alice and Bob share an unlimited number of EPR p
 	\textcolor{red}{\textbf{Our result}}: For AND functions, $f= g \circ \text{AND}_2$,
 	$$ D(f) \leq \text{poly}(Q(f), \log(n))$$
 	where $D(f)=$ classical deterministic communication complexity. \newline
-	Thus, Quantum Equivalence Conjecture is true for AND functions up to $\text{polylog}(n)$ factors. \newline
+	Thus, Log Equivalence Conjecture is true for AND functions up to $\text{polylog}(n)$ factors. \newline
 	
 	This answers an open problem of Razborov [2002].
 	
@@ -48,7 +58,7 @@ Model of quantum communication: Alice and Bob share an unlimited number of EPR p
 	\centering % Centers the image
 	\includegraphics[width=0.65\textwidth]{corporate.png} 
 	
-	
+	%\caption{Our main result (summarized)}
 	\label{fig:meme1} % Label used for cross-referencing
 \end{figure}
 
@@ -63,7 +73,7 @@ Model of quantum communication: Alice and Bob share an unlimited number of EPR p
 	
 	\textbf{Why study AND functions?}
 	\begin{itemize}
-		\item<1-> Lifted functions form a large class of interesting communication problems. They form a testbed for all major conjectures in communication complexity (e.g, Log Rank Conjecture, Log Approximate Rank Conjecture [now known to be false], Quantum Equivalence Conjecture)
+		\item<1-> Lifted functions form a large class of interesting communication problems. They form a testbed for all major conjectures in communication complexity (e.g, Log Rank Conjecture, Log Approximate Rank Conjecture [now known to be false], Log Equivalence Conjecture)
 		\item<2-> Of particular interest is the case when the lifting gadget is as simple as possible, i.e., it has only two bits. If the gadget is simple, it does not have too much ability to obfuscate the inputs between Alice and Bob.
 		\item<3-> There are only two nontrivial gadgets on 2 bits: XOR and AND. Both XOR and AND functions have been extensively studied in the literature.
 	\end{itemize}
@@ -90,7 +100,7 @@ Model of quantum communication: Alice and Bob share an unlimited number of EPR p
 		\item<2-> An easy adaptation of the same argument proves the results for functions of the form $g \circ h$, where $h$ is any gadget inside whose truth table both AND and OR can be embedded.
 		\item<3-> \textbf{Burhman and de Wolf (2003)} noticed a relation between $Q(g \circ \text{AND}_2)$ and various complexity measures of $g$, and conjectured a particular relation between them (to be described in detail soon).
 		\item<4->\textbf{Kremer (1996)} proved log-approximate rank lower bounds quantum communication complexity.
-		\item<5-> \textbf{Lovett, Knop, McGuire, Yuan (2021)} proved the log rank conjecture for AND functions. By an intermediate result in their proof, it became  clear that proving the relation conjectured by Buhrman and de Wolf would also imply the Quantum Equivalence Conjecture for $\text{AND}$ functions.
+		\item<5-> \textbf{Lovett, Knop, McGuire, Yuan (2021)} proved the log rank conjecture for AND functions. By an intermediate result in their proof, it became  clear that proving the relation conjectured by Buhrman and de Wolf would also imply the Log Equivalence Conjecture for $\text{AND}$ functions.
 	\end{itemize}
 	
 \end{frame}
@@ -100,7 +110,7 @@ Model of quantum communication: Alice and Bob share an unlimited number of EPR p
 \begin{frame}{Prior work}
 	\begin{itemize}
 		\item<1-> \textbf{Chattopadhyay, Dahiya, Lovett (2026)} proved that the logarithms of de-Morgan sparsity and approximate de-Morgan sparsity are polynomially related.
-		\item<2-> They also showed the Quantum Equivalence Conjecture for functions of the form $g \circ \text{EQ}_4$.
+		\item<2-> They also showed the Log Equivalence Conjecture for functions of the form $g \circ \text{EQ}_4$.
 		\item<3-> We extend their work to show the relation between quantities conjectured by Burhman and deWolf. This implies the Quantum-Equivalence Conjecture for AND functions.
 	\end{itemize}
 	

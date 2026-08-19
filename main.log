@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.6)  19 AUG 2026 09:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.6)  19 AUG 2026 11:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2065,33 +2065,27 @@ Package pdftex.def Info: shachar_lovett.jpg  used on input line 148.
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
  <./sreejata_bhattacharya.jpg> <./farzan_byramji.jpg> <./arkadev_chattopadhyay.
-jpg> <./yogesh_dahiya.jpg> <./shachar_lovett.jpg>] (./intro.tex
-<quantum_communication.png, id=81, 1453.43pt x 1090.0725pt>
-File: quantum_communication.png Graphic file (type png)
-<use quantum_communication.png>
-Package pdftex.def Info: quantum_communication.png  used on input line 15.
-(pdftex.def)             Requested size: 122.91406pt x 92.1809pt.
- [2
+jpg> <./yogesh_dahiya.jpg> <./shachar_lovett.jpg>] (./intro.tex [2
 
- <./quantum_communication.png (PNG copy)>] [3
+] [3
 
 ] [4
 
-]
-<corporate.png, id=131, 1368.11125pt x 1529.715pt>
-File: corporate.png Graphic file (type png)
-<use corporate.png>
-Package pdftex.def Info: corporate.png  used on input line 59.
-(pdftex.def)             Requested size: 199.73653pt x 223.33186pt.
- [5
+] [5
 
- <./corporate.png>] [6
+] [6
 
 ] [7
 
-] [8
+]
+<corporate.png, id=161, 1368.11125pt x 1529.715pt>
+File: corporate.png Graphic file (type png)
+<use corporate.png>
+Package pdftex.def Info: corporate.png  used on input line 69.
+(pdftex.def)             Requested size: 199.73653pt x 223.33186pt.
+ [8
 
-] [9
+ <./corporate.png>] [9
 
 ] [10
 
@@ -2103,20 +2097,20 @@ Package pdftex.def Info: corporate.png  used on input line 59.
 
 ] [14
 
-]
-[15
+] [15
 
 ] [16
 
 ] [17
 
-]) (./other_measures.tex [18
+] [18
 
 ] [19
 
 ] [20
 
-] [21
+])
+(./other_measures.tex [21
 
 ] [22
 
@@ -2124,20 +2118,20 @@ Package pdftex.def Info: corporate.png  used on input line 59.
 
 ] [24
 
-]
-[25
+] [25
 
 ] [26
 
 ] [27
 
-]) (./proof_sketch.tex [28
+] [28
 
 ] [29
 
 ] [30
 
-] [31
+])
+(./proof_sketch.tex [31
 
 ] [32
 
@@ -2147,8 +2141,7 @@ Package pdftex.def Info: corporate.png  used on input line 59.
 
 ] [35
 
-]
-[36
+] [36
 
 ] [37
 
@@ -2160,7 +2153,8 @@ Package pdftex.def Info: corporate.png  used on input line 59.
 
 ] [41
 
-] [42
+]
+[42
 
 ] [43
 
@@ -2178,8 +2172,7 @@ Package pdftex.def Info: corporate.png  used on input line 59.
 
 ] [50
 
-]
-[51
+] [51
 
 ] [52
 
@@ -2191,7 +2184,8 @@ Package pdftex.def Info: corporate.png  used on input line 59.
 
 ] [56
 
-] [57
+]
+[57
 
 ] [58
 
@@ -2209,8 +2203,7 @@ Package pdftex.def Info: corporate.png  used on input line 59.
 
 ] [65
 
-]
-[66
+] [66
 
 ] [67
 
@@ -2222,7 +2215,8 @@ Package pdftex.def Info: corporate.png  used on input line 59.
 
 ] [71
 
-] [72
+]
+[72
 
 ] [73
 
@@ -2240,14 +2234,20 @@ Package pdftex.def Info: corporate.png  used on input line 59.
 
 ] [80
 
-]
-[81
+] [81
 
 ] [82
 
 ] [83
 
-]) (./conclusions.tex [84
+] [84
+
+] [85
+
+] [86
+
+])
+(./conclusions.tex [87
 
 ])
 \tf@nav=\write8
@@ -2268,10 +2268,10 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 9C1522E755AC0538D3EAC5842929488F;615.
  ) 
 Here is how much of TeX's memory you used:
- 64025 strings out of 474222
- 1679149 string characters out of 5748733
- 2430182 words of memory out of 5000000
- 85227 multiletter control sequences out of 15000+600000
+ 64001 strings out of 474222
+ 1678459 string characters out of 5748733
+ 2430147 words of memory out of 5000000
+ 85198 multiletter control sequences out of 15000+600000
  572509 words of font info for 95 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,19n,123p,1608b,765s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2294,10 +2294,10 @@ ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (84 pages, 9316694 bytes).
+Output written on main.pdf (87 pages, 7394346 bytes).
 PDF statistics:
- 1269 PDF objects out of 1440 (max. 8388607)
- 881 compressed objects within 9 object streams
- 175 named destinations out of 1000 (max. 500000)
- 530 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1300 PDF objects out of 1440 (max. 8388607)
+ 905 compressed objects within 10 object streams
+ 180 named destinations out of 1000 (max. 500000)
+ 525 words of extra memory for PDF output out of 10000 (max. 10000000)
 
